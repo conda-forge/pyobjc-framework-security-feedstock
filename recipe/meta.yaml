@@ -1,5 +1,5 @@
 {% set name = "pyobjc-framework-security" %}
-{% set version = "10.1" %}
+{% set version = "10.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyobjc-framework-Security-{{ version }}.tar.gz
-  sha256: 33becccea5488a4044792034d8cf4faf1913f8ca9ba912dceeaa54db311bd284
+  sha256: 20ec8ebb41506037d54b40606590b90f66a89adceeddd9a40674b0c7ea7c8c82
 
 build:
   script:

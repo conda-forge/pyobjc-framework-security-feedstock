@@ -1,13 +1,13 @@
 {% set name = "pyobjc-framework-security" %}
-{% set version = "10.2" %}
+{% set version = "10.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyobjc-framework-Security-{{ version }}.tar.gz
-  sha256: 20ec8ebb41506037d54b40606590b90f66a89adceeddd9a40674b0c7ea7c8c82
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 1be270a9205d9f392a658a267dec9ec602d6a98448419541f0005dc80da97013
 
 build:
   script:
@@ -22,6 +22,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:

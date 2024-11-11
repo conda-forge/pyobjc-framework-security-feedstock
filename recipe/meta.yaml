@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyobjc-framework-Security-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pyobjc-framework-Security-{{ version }}.tar.gz
   sha256: 20ec8ebb41506037d54b40606590b90f66a89adceeddd9a40674b0c7ea7c8c82
 
 build:
@@ -17,11 +17,12 @@ build:
     - export CFLAGS="${CFLAGS} -Wno-unused-command-line-argument"  # [py == 37 or py == 38]
     - {{ PYTHON }} -m pip install --no-deps . -vv
   skip: true  # [not osx or py2k or python_impl == 'pypy' or (arm64 and py < 39)]
-  number: 0
+  number: 1
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
